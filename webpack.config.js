@@ -1,5 +1,20 @@
+var webpack = require('webpack');
+
 module.exports = {
-  entry: './app/app.jsx',  //specifies where the app is, here using jsx
+  entry: [
+    'script!jquery/dist/jquery.min.js', //these are regular script files, not for webpacks, so we must have script! by using scrip loader (installed via npm)
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx'
+  ],  //specifies where the app is, here using jsx
+  externals: {
+    jquery: 'jQuery'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({  // telling the app whenever we want to use jquery, look for these signs
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
+  ],
   output: {
     path: __dirname,
     filename: './public/bundle.js'  //this is output file where everything gets dumped
