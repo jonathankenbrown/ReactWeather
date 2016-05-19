@@ -8,10 +8,13 @@ var React = require('react');
 //   }
 // });
 
-var About = (props) => {  // State-less function
-  return (
-    <h3>About Component</h3>
-  );
+var About = (props) => { // State-less function
+    return (
+        <div>
+            <h3>About</h3>
+            <p>Welcome to About page!</p>
+        </div>
+    );
 };
 
 module.exports = About;
